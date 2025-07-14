@@ -61,6 +61,12 @@ Les services sont conçus pour fonctionner dans Kubernetes où :
 - Le Service A appelle le Service B via `http://service-b:3000/hello`
 - La résolution DNS Kubernetes permet cette communication inter-services
 
+### Health Checks
+
+Les deux services utilisent des sondes Kubernetes pour le monitoring de santé :
+- **readinessProbe** : Vérifie si le pod est prêt à recevoir du trafic (endpoint `/health`, délai initial de 5s, période de 5s)
+- **livenessProbe** : Vérifie si le pod est en vie et fonctionne correctement (endpoint `/health`, délai initial de 30s, période de 10s)
+
 ## Déploiement et test
 
 Le projet inclut un script qui automatise le processus de déploiement :
