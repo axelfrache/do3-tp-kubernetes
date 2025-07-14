@@ -61,7 +61,17 @@ Les services sont conçus pour fonctionner dans Kubernetes où :
 - Le Service A appelle le Service B via `http://service-b:3000/hello`
 - La résolution DNS Kubernetes permet cette communication inter-services
 
-## Test
+## Déploiement et test
+
+Le projet inclut un script qui automatise le processus de déploiement :
+```bash
+./deploy.sh
+```
+
+Une fois le déploiement terminé, un script est fourni pour tester l'application :
+```bash
+./test.sh
+```
 
 Une fois les services déployés :
 - Service B direct : `curl http://service-b:3000/hello`
